@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #392f5a;
+}
+
+.quotes {
+  color: #fff8f0;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__author {
+    font-size: 3rem;
+  }
+
+  &__quote {
+    font-size: 1.6rem;
+    font-style: italic;
+  }
+}
+
+.loading {
+  font-size: 3rem;
+}
