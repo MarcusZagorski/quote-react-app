@@ -4,27 +4,40 @@ import "./App.scss";
 function App() {
   const [quotes, setQuotes] = useState(null);
   const fetched = useRef(true);
-  console.log(fetched.current);
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(!clicked);
+    console.log(clicked);
+  };
 
   useEffect(() => {
     if (fetched.current) {
       fetched.current = false;
       fetch("https://quoteapi-sl03rxte3npt.runkit.sh/quotes/random")
         .then((res) => res.json())
-        .then((data) => setQuotes(data));
+        .then((data) => {
+          setQuotes(data);
+          fetched.current = true;
+        });
     }
-  }, []);
+  }, [clicked]);
 
-  if (quotes === null) {
-    return <div className="quotes loading">Loading...</div>;
-  } else {
-    return (
-      <div className="quotes">
-        <p className="quotes__author">{quotes.author}</p>
-        <p className="quotes__quote">“{quotes.quote}”</p>
-      </div>
-    );
-  }
+  return (
+    <div className="quotes">
+      {quotes ? (
+        <>
+          <p className="quotes__author">{quotes.author}</p>
+          <p className="quotes__quote">“{quotes.quote}”</p>
+          <button onClick={handleClick} className="quotes__btn">
+            Generate new quote
+          </button>
+        </>
+      ) : (
+        <div className="quotes loading">Loading...</div>
+      )}
+    </div>
+  );
 }
 
 export default App;
