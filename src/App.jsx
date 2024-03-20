@@ -24,7 +24,7 @@ function App() {
   }, [clicked]);
 
   return (
-    <div className="quotes">
+    <blockquote className="quotes">
       {quotes ? (
         <>
           <p className="quotes__author">{quotes.author}</p>
@@ -36,7 +36,7 @@ function App() {
       ) : (
         <div className="quotes loading">Loading...</div>
       )}
-    </div>
+    </blockquote>
   );
 }
 

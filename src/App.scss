@@ -27,19 +27,16 @@ body {
   }
 
   &__btn {
-    width: 10rem;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 3rem;
     border-radius: 0.7rem;
     border: none;
-    padding: 0.9rem;
-    background-color: rgba(255, 248, 240, 0.2392156863);
+    padding: 1.2rem;
+    background-color: #fff8f03d;
     color: #fff8f0;
     transition: ease-in-out 0.8s;
     position: absolute;
-    top: 0;
+    top: 3rem;
     right: 1rem;
+    cursor: pointer;
   }
 
   &__btn:hover,
